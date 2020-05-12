@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+   nginx:
+      image: nginx:latest
+      ports:
+         - 80:80
+      volumes:
+         - ./config/nginx.conf:/etc/nginx/nginx.conf
+         - ./data/log/nginx:/var/log/nginx
+      networks:
+         - development
+
+networks:
+   development:
+      external: true
